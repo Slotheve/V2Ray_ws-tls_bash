@@ -570,8 +570,8 @@ nginx_conf_add() {
         }
 }
     server {
-        listen 80;
-        listen [::]:80;
+        listen 81;
+        listen [::]:81;
         server_name serveraddr.com;
         return 301 https://use.shadowsocksr.win\$request_uri;
     }
@@ -885,7 +885,7 @@ install_v2ray_ws_tls() {
     old_config_exist_check
     port_alterid_set
     v2ray_install
-    port_exist_check 80
+    port_exist_check 81
     port_exist_check "${port}"
     nginx_exist_check
     v2ray_conf_add_tls
@@ -912,7 +912,7 @@ install_v2_h2() {
     old_config_exist_check
     port_alterid_set
     v2ray_install
-    port_exist_check 80
+    port_exist_check 81
     port_exist_check "${port}"
     v2ray_conf_add_h2
     ssl_judge_and_install
