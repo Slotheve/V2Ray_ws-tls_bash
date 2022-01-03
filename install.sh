@@ -332,6 +332,7 @@ v2ray_install() {
         exit 4
     fi
     # 清除临时文件
+	sed -i '/\[Service]/a\Environment="V2RAY_VMESS_AEAD_FORCED=false"' /etc/systemd/system/v2ray.service
     rm -rf /root/v2ray
 }
 nginx_exist_check() {
@@ -405,7 +406,6 @@ nginx_install() {
     judge "Nginx 编译安装"
 
     # 修改基本配置
-	sed -i '/\[Service]/a\Environment="V2RAY_VMESS_AEAD_FORCED=false"' /etc/systemd/system/v2ray.service
     sed -i 's/#user  nobody;/user  root;/' ${nginx_dir}/conf/nginx.conf
     sed -i 's/worker_processes  1;/worker_processes  3;/' ${nginx_dir}/conf/nginx.conf
     sed -i 's/    worker_connections  1024;/    worker_connections  4096;/' ${nginx_dir}/conf/nginx.conf
