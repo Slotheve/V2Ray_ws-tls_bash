@@ -291,7 +291,6 @@ modify_nginx_port() {
         port="$(info_extraction '\"port\"')"
     fi
     sed -i "/ssl http2;$/c \\\tlisten ${port} ssl http2;" ${nginx_conf}
-    sed -i "3c \\\tlisten [::]:${port} http2;" ${nginx_conf}
     judge "V2ray port 修改"
     [ -f ${v2ray_qr_config_file} ] && sed -i "/\"port\"/c \\  \"port\": \"${port}\"," ${v2ray_qr_config_file}
     echo -e "${OK} ${GreenBG} 端口号:${port} ${Font}"
@@ -537,7 +536,6 @@ nginx_conf_add() {
     cat >${nginx_conf_dir}/v2ray.conf <<EOF
     server {
         listen 443 ssl http2;
-        listen [::]:443 http2;
         ssl_certificate       /data/v2ray.crt;
         ssl_certificate_key   /data/v2ray.key;
         ssl_protocols         TLSv1.3;
@@ -571,7 +569,6 @@ nginx_conf_add() {
 }
     server {
         listen 80;
-        listen [::]:80;
         server_name serveraddr.com;
         return 301 https://use.shadowsocksr.win\$request_uri;
     }
