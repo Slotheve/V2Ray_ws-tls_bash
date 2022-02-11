@@ -332,7 +332,6 @@ v2ray_install() {
         exit 4
     fi
     # 清除临时文件
-	sed -i '/\[Service]/a\Environment="V2RAY_VMESS_AEAD_FORCED=false"' /etc/systemd/system/v2ray.service
     rm -rf /root/v2ray
 }
 nginx_exist_check() {
