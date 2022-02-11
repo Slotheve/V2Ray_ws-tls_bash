@@ -8,11 +8,10 @@ cd "$(
 )" || exit
 #====================================================
 #	System Request:Debian 9+/Ubuntu 18.04+/Centos 7+
-#	Author:	wulabing
+#	Author:	Slotheve
 #	Dscription: V2ray ws+tls onekey Management
 #	Version: 1.0
-#	email:admin@wulabing.com
-#	Official document: www.v2ray.com
+#	email:slothevem@gmail.com
 #====================================================
 
 #fonts color
@@ -976,7 +975,7 @@ modify_camouflage_path() {
 menu() {
     update_sh
     echo -e "\t V2ray 安装管理脚本 ${Red}[${shell_version}]${Font}"
-    echo -e "\t---authored by wulabing---"
+    echo -e "\t---authored by Slotheve---"
     echo -e "\thttps://github.com/Slotheve\n"
     echo -e "当前已安装版本:${shell_mode}\n"
 
